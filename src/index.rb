@@ -22,13 +22,13 @@ def fixed_array(size, content)
 end
 
 def read_file
-    File.open('marks.txt').readlines.each do |line|
+    File.open('marks1.txt').readlines.each do |line|
         @grid << line
     end
 end
 
 def write_file
-    File.open('marks.txt', 'w') { |f| f.puts(@grid)}
+    File.open('marks1.txt', 'w') { |f| f.puts(@grid)}
 end
 
 # MAIN METHODS
@@ -36,7 +36,7 @@ end
 def view
     # @array = []
     read_file
-    @box = TTY::Box.frame(width: 20, height: 14, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center, padding: 1) {
+    @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
 "#{@grid.join("\n")}"
 }
     puts @box
@@ -58,14 +58,16 @@ end
 
 def reset
     count = 0
+    # reinitialize the grid to empty upon reset and update array from 0-9
+    @grid = []
     while count < 10
         @grid.push(fixed_array(10, [count]).join(" "))
         count += 1
     end
     write_file
-    view
+    menu(0)
 end
 
-
-day = 0.to_s.split(//)
+test = 1
+day = test.to_s.split(//)
 menu(day[1].to_i, day[0].to_i)
