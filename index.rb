@@ -22,9 +22,13 @@ def fixed_array(size, content)
 end
 
 def read_file
-    File.open('test.txt').readlines.each do |line|
+    File.open('marks.txt').readlines.each do |line|
         @grid << line
     end
+end
+
+def write_file
+    File.open('marks.txt', 'w') { |f| f.puts(@grid)}
 end
 
 # MAIN METHODS
@@ -41,14 +45,14 @@ end
 def add(y, x = 0)
     read_file
     @grid[x][y] = "x"
-    File.open('test.txt', 'w') { |f| f.puts(@grid)}
+    write_file
     view
 end
 
 def delete(y, x=0)
     read_file
     @grid[x][y] = " "
-    File.open('test.txt', 'w') { |f| f.puts(@grid)}
+    write_file
     view
 end
 
@@ -58,10 +62,10 @@ def reset
         @grid.push(fixed_array(10, [count]).join(" "))
         count += 1
     end
-    File.open('test.txt', 'w') { |f| f.puts(@grid)}
+    write_file
     view
 end
 
 
-day = 2.to_s.split(//)
+day = 0.to_s.split(//)
 menu(day[1].to_i, day[0].to_i)
