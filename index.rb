@@ -36,7 +36,7 @@ end
 def view
     # @array = []
     read_file
-    @box = TTY::Box.frame(width: 20, height: 14, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center, padding: 1) {
+    @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
 "#{@grid.join("\n")}"
 }
     puts @box
@@ -63,9 +63,9 @@ def reset
         count += 1
     end
     write_file
-    view
+    menu(0)
 end
 
-
-day = 0.to_s.split(//)
+test = 1
+day = test.to_s.split(//)
 menu(day[1].to_i, day[0].to_i)
