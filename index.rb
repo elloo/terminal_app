@@ -22,13 +22,13 @@ def fixed_array(size, content)
 end
 
 def read_file
-    File.open('marks.txt').readlines.each do |line|
+    File.open('marks1.txt').readlines.each do |line|
         @grid << line
     end
 end
 
 def write_file
-    File.open('marks.txt', 'w') { |f| f.puts(@grid)}
+    File.open('marks1.txt', 'w') { |f| f.puts(@grid)}
 end
 
 # MAIN METHODS
@@ -58,6 +58,8 @@ end
 
 def reset
     count = 0
+    # reinitialize the grid to empty upon reset and update array from 0-9
+    @grid = []
     while count < 10
         @grid.push(fixed_array(10, [count]).join(" "))
         count += 1
