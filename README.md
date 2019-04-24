@@ -9,12 +9,13 @@
 ### Gems used
 
 [TTY::Prompt](https://github.com/piotrmurach/tty-prompt "TTY::Prompt GitHub")
+
 [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
 
 ## Brainstorming and Workflow
-[Brainstoming notes](../docs/Brainstorm.pdf)
+[Brainstoming notes](docs/Brainstorm.pdf)
 
 ## Initial Design Specifications
 
