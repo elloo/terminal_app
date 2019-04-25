@@ -4,7 +4,23 @@
 
 ## Functionality
 
+This application comes with four simple commands:
+
+1. Mark - creates "x" marks within the interface.
+2. Delete - deletes "x" marks created in the same day.
+3. Reset - clears the interface of all "x" marks.
+4. Quit - exits the program.
+
+This application was designed to track habitual behaviour over the period of 100 days. It allows for breaks in the "chain" and must be manually reset to re-initialise the starting date.
+
 ## Instructions for Use
+
+Within the Command Line Interface (CLI):
+
+1. Navigate to the containing folder using `cd`
+2. Open the `src` folder
+3. Type `ruby index.rb` into the CLI
+4. Follow the on-screen prompt
 
 ### Gems used
 
@@ -15,11 +31,23 @@
 
 ## Brainstorming and Workflow
 
-[Brainstoming notes](docs/Brainstorm.pdf)
+In the initial brainstorming phase, these [notes](docs/Brainstorm.pdf) were created. This is a list of four - five different ideas that were generated within an hour. The possibilities included:
+
+1. A mood tracker
+2. Don't Break the Chain
+3. Space Invaders
+4. Bejeweled
+5. A translation app
+
+It was decided that agile methodology would be followed as it would be hard to accurately judge how long each feature would take to implement.
 
 ## Initial Design Specifications
 
+The project was first intended to be a CRUD (Create, Read, Update, Delete) application. After the first sprint, it was decided that updating or editing the application was not needed on moral grounds. 
+
 ### User Stories
+
+The following user stories reflect the initial design specifications of this application.
 
 - As Ewe Lin, I want to mark down the days I stick to a habit so that I can track my progress in #100DaysofCode
 - As Ewe Lin, I want to be able to delete past entries so that I can make mistakes
@@ -28,14 +56,33 @@
 
 ## Project Plan & Timeline
 
+**First sprint** 
+
+In the first sprint, these [brainstoming notes](docs/Brainstorm.pdf) were created. This is a list of four - five different ideas that were generated within an hour. The possibilities included:
+
+1. A mood tracker
+2. Don't Break the Chain
+3. Space Invaders
+4. Bejeweled
+5. A translation app
+
+After some advice from the teacher, Don't Break the Chain was selected. Related gems were noted beforehand and they were immediately used to create the menu and box containing the grid. All basic functionality and writing / reading from a file were coded. Unfortunately, this meant overlooking the planning phase for the higher-level structure. 
+
+**Second sprint**
+
+The UI of the application was first sketched out.
+
 ### Higher Level Structure
 
 ### Trello Screenshots
 
 ## Technical Difficulties
+
 1. Writing and reading the file
 
-   One of the first difficulties encountered was learning to write and read from a file properly. From a suggestion for a previous class exercise, it was thought that YAML would be sufficient. However, this was corrected and a normal .txt file was used instead. This made things much more straightforward as YAML uses special structures for it's format whereas .txt files retain the familiar Ruby syntax.
+   One of the first difficulties encountered was learning to write and read from a file properly. It took about 6 hours to solve this.
+   
+   From a suggestion for a previous class exercise, it was thought that YAML would be sufficient. However, this was corrected and a normal .txt file was used instead. This made things much more straightforward as YAML uses special structures for it's format whereas .txt files retain the familiar Ruby syntax.
 
    In order to add or delete a single, selected character within the 2D array that represented the grid, the file always had to be read directly before making a change to it.
 
@@ -44,6 +91,7 @@
 ## Future Improvements
 
 1. Adding colours to signify effort
+2. Adding a reward (a rainbow effect on the marks) for completing 100 days
 2. Translation
 
 ## Discussion
