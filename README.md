@@ -28,9 +28,8 @@ Within the Command Line Interface (CLI):
 - [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
-![100 Days Marked](docs/100_days_marked.png "100 days marked")
 
-<img src="docs/100_days_marked.png" alt="100 days marked" width="606" height="659"/>
+<img src="docs/100_days_marked.png" alt="100 days marked" width="455" height="494"/>
 
 ## Brainstorming and Workflow
 
