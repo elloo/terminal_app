@@ -76,6 +76,10 @@ def reset
     menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
-test = 4
-@day_index = test.to_s.split(//)
+day = 00
+if (Time.now.utc - init_time) % 60 * 60 * 24 == 0
+    day.next
+end
+
+@day_index = day.to_s.split(//)
 menu(@day_index[0].to_i, @day_index[1].to_i)
