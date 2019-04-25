@@ -1,5 +1,6 @@
 require "tty-box"
 require "tty-prompt"
+require "date"
 
 @grid = []
 @marks_txt = false
@@ -24,6 +25,7 @@ end
 # MAIN METHODS
 
 def menu(num2, num1 = 0)
+    # If marks.txt file exists show box and menu, else reset
     if @marks_txt
         system "clear"
 
@@ -63,12 +65,12 @@ def delete(y, x=0)
 end
 
 def reset
-    @init_time = Time.now.utc
+    @init_date = Date.today
     count = 0
     # reinitialize the grid to empty upon reset and update array from 0-9
     @grid = []
     while count < 10
-        @grid.push(fixed_array(10, [count]).join(" "))
+        @grid.push(fixed_array(10, [""]).join(" "))
         count += 1
     end
     write_file
@@ -76,10 +78,17 @@ def reset
     menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
-day = 00
-if (Time.now.utc - init_time) % 60 * 60 * 24 == 0
-    day.next
+if !@init_date
+    @init_date = Date.today
+    @day_num = 0
+else
+    @day_num = (Date.today - @init_date).to_i
+    if @day_num >= 100
+        reset
+    end
 end
-
-@day_index = day.to_s.split(//)
+# Testing above else condition for determining @day
+# @day_num = (Date.today - Date.new(2019,4,4)).to_i
+@day = format('%02d', @day_num)
+@day_index = @day.to_s.split(//)
 menu(@day_index[0].to_i, @day_index[1].to_i)
