@@ -28,6 +28,7 @@ Within the Command Line Interface (CLI):
 - [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
+![100 Days Marked](docs/100_days_marked "100 days marked")
 
 ## Brainstorming and Workflow
 
