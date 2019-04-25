@@ -1,8 +1,8 @@
 require "tty-box"
 require "tty-prompt"
+require "date"
 
 @grid = []
-@marks_txt = false
 
 # HELPER METHODS
 
@@ -24,28 +24,26 @@ end
 # MAIN METHODS
 
 def menu(num2, num1 = 0)
-    if @marks_txt
-        system "clear"
-
-        read_file
-        @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
-    "#{@grid.join("\n")}"
-    }
-        puts @box
-
-        puts "Day #{@day}"
-            @menu = [
-                {"Mark" => -> { mark(num1, num2) }},
-                {"Delete" => -> { delete(num1, num2) }},
-                {"Reset" => -> { reset }},
-                {"Quit" => -> { 
-                    system "clear" 
-                    break }}]
-        prompt = TTY::Prompt.new
-        function = prompt.select("", @menu)
-    else
+    unless File.exist?('marks.txt')
         reset
     end
+    # system "clear"
+    read_file
+    @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
+"#{@grid.join("\n")}"
+}
+    puts @box
+
+    puts "Day #{@day}"
+        @menu = [
+            {"Mark" => -> { mark(num1, num2) }},
+            {"Delete" => -> { delete(num1, num2) }},
+            {"Reset" => -> { reset }},
+            {"Quit" => -> { 
+                system "clear" 
+                break }}]
+    prompt = TTY::Prompt.new
+    function = prompt.select("", @menu)
 end
 
 def mark(y, x = 0)
@@ -63,23 +61,29 @@ def delete(y, x=0)
 end
 
 def reset
-    @init_time = Time.now.utc
     count = 0
     # reinitialize the grid to empty upon reset and update array from 0-9
     @grid = []
     while count < 10
-        @grid.push(fixed_array(10, [count]).join(" "))
+        @grid.push(fixed_array(10, [""]).join(" "))
         count += 1
     end
     write_file
-    @marks_txt = true
+
     menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
-day = 00
-if (Time.now.utc - init_time) % 60 * 60 * 24 == 0
-    day.next
+def day_num
+    
+    @init_txt = File.open('init.txt', 'w+') { Date.today }
+    puts @day_num.class
+    if @day_num.nil? || @day_num > 100
+        @day_num = 0
+    end
+    @day_num = (Date.parse('20190506') - @init_txt).to_i
+    @day = format('%02d', @day_num)
+    @day.to_s.split(//)
 end
 
-@day_index = day.to_s.split(//)
+@day_index = day_num
 menu(@day_index[0].to_i, @day_index[1].to_i)
