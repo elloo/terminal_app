@@ -87,8 +87,10 @@ else
         reset
     end
 end
-# Testing above else condition for determining @day
+# Testing above else condition for determining @day_num
 # @day_num = (Date.today - Date.new(2019,4,4)).to_i
+
+# Note: Day count starts at 0 as app is geared towards true coders
 @day = format('%02d', @day_num)
 @day_index = @day.to_s.split(//)
 menu(@day_index[0].to_i, @day_index[1].to_i)
