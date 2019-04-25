@@ -8,13 +8,13 @@
 
 ### Gems used
 
-[TTY::Prompt](https://github.com/piotrmurach/tty-prompt "TTY::Prompt GitHub")
-
-[TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
+- [TTY::Prompt](https://github.com/piotrmurach/tty-prompt "TTY::Prompt GitHub")
+- [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
 
 ## Brainstorming and Workflow
+
 [Brainstoming notes](docs/Brainstorm.pdf)
 
 ## Initial Design Specifications
@@ -23,7 +23,7 @@
 
 - As Ewe Lin, I want to mark down the days I stick to a habit so that I can track my progress in #100DaysofCode
 - As Ewe Lin, I want to be able to delete past entries so that I can make mistakes
-- As Shun, I want to be able to change / update entries for previous days so that I don't have to worry about missing a day.
+- As Shun, I want to be able to change / update entries for previous days so that I can make marks irregularly.
 - As Shun, I want to be able to view all entries so that I can gain an overview of my past behaviour
 
 ## Project Plan & Timeline
@@ -43,8 +43,19 @@
 
 ## Future Improvements
 
+1. Adding colours to signify effort
+2. Translation
+
 ## Discussion
 
 ### Legal, moral, ethical, cultural and safety issues
 
+It is important to note that this application is not directly affiliated in any way with [#100DaysofCode](https://100daysofcode.com "100 Days of Code").
+
+This application was initially intended to allow the user to edit marks on any given day. On further consideration of the morality behind this function, it was decided that this feature be omitted from the application. This would prevent the user from falsifying earlier entries and enhance the authenticity of data.
+
 ### Social, political, cultural, racial, gender and international issues
+
+[#100DaysofCode](https://100daysofcode.com "100 Days of Code") is a social campaign that encourages those people to code for 100 days in a row. 
+
+The application relies on a few words ("Mark", "Delete", and "Reset") with functionality that can easily be discovered or translated. This is to minimise the non-intentional bias toward English-speaking cultures and races.
