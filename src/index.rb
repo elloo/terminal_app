@@ -1,19 +1,8 @@
 require "tty-box"
 require "tty-prompt"
 
-def menu(num2, num1 = 0)
-    system "clear"
-    puts "What would you like to do?"
-        @menu = [
-            {"View" => -> { view }},
-            {"Add" => -> { add(num1, num2) }},
-            {"Delete" => -> { delete(num1, num2) }},
-            {"Reset" => -> { reset }}]
-    prompt = TTY::Prompt.new
-    function = prompt.select("", @menu)
-end
-
 @grid = []
+@marks_txt = false
 
 # HELPER METHODS
 
@@ -22,41 +11,59 @@ def fixed_array(size, content)
 end
 
 def read_file
-    File.open('marks1.txt').readlines.each do |line|
+    @grid = []
+    File.open('marks.txt').readlines.each do |line|
         @grid << line
     end
 end
 
 def write_file
-    File.open('marks1.txt', 'w') { |f| f.puts(@grid)}
+    File.open('marks.txt', 'w') { |f| f.puts(@grid)}
 end
 
 # MAIN METHODS
 
-def view
-    # @array = []
-    read_file
-    @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
-"#{@grid.join("\n")}"
-}
-    puts @box
+def menu(num2, num1 = 0)
+    if @marks_txt
+        system "clear"
+
+        read_file
+        @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
+    "#{@grid.join("\n")}"
+    }
+        puts @box
+
+        puts "Day #{@day}"
+            @menu = [
+                {"Mark" => -> { mark(num1, num2) }},
+                {"Delete" => -> { delete(num1, num2) }},
+                {"Reset" => -> { reset }},
+                {"Quit" => -> { 
+                    system "clear" 
+                    break }}]
+        prompt = TTY::Prompt.new
+        function = prompt.select("", @menu)
+    else
+        reset
+    end
 end
 
-def add(y, x = 0)
+def mark(y, x = 0)
     read_file
     @grid[x][y] = "x"
     write_file
-    view
+    menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
 def delete(y, x=0)
     read_file
     @grid[x][y] = " "
     write_file
-    view
+    menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
 def reset
+    @init_time = Time.now.utc
     count = 0
     # reinitialize the grid to empty upon reset and update array from 0-9
     @grid = []
@@ -65,9 +72,10 @@ def reset
         count += 1
     end
     write_file
-    menu(0)
+    @marks_txt = true
+    menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
-test = 1
-day = test.to_s.split(//)
-menu(day[1].to_i, day[0].to_i)
+test = 4
+@day_index = test.to_s.split(//)
+menu(@day_index[0].to_i, @day_index[1].to_i)
