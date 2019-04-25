@@ -65,7 +65,11 @@ def delete(y, x=0)
 end
 
 def reset
+
     @init_date = Date.today
+    init_txt = File.open('init.txt', 'w') { |f| f.write (@init_date)}
+    @day_num = (Date.today - Date.parse("#{init_txt}")).to_i
+
     count = 0
     # reinitialize the grid to empty upon reset and update array from 0-9
     @grid = []
@@ -75,22 +79,17 @@ def reset
     end
     write_file
     @marks_txt = true
-    menu(@day_index[0].to_i, @day_index[1].to_i)
-end
 
-if !@init_date
-    @init_date = Date.today
-    @day_num = 0
-else
-    @day_num = (Date.today - @init_date).to_i
-    if @day_num >= 100
-        reset
-    end
+    menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 # Testing above else condition for determining @day_num
 # @day_num = (Date.today - Date.new(2019,4,4)).to_i
 
-# Note: Day count starts at 0 as app is geared towards true coders
+if @day_num == nil
+    @day_num = 0
+elsif @day_num > 100
+    reset
+end
 @day = format('%02d', @day_num)
 @day_index = @day.to_s.split(//)
 menu(@day_index[0].to_i, @day_index[1].to_i)
