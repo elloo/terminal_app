@@ -31,7 +31,7 @@ Within the Command Line Interface (CLI):
 
 ## Brainstorming and Workflow
 
-In the initial brainstorming phase, these [notes](docs/Brainstorm.pdf) were created. This is a list of four - five different ideas that were generated within an hour. The possibilities included:
+In the initial brainstorming phase, these [notes](docs/Brainstorm.pdf) were created. This is a list of the five different ideas that were generated within an hour. The possibilities included:
 
 1. A mood tracker
 2. Don't Break the Chain
@@ -43,7 +43,7 @@ It was decided that agile methodology would be followed as it would be hard to a
 
 ## Initial Design Specifications
 
-The project was first intended to be a CRUD (Create, Read, Update, Delete) application. After the first sprint, it was decided that updating or editing the application was not needed on moral grounds. 
+The project was first intended to be a Create, Read, Update, Delete (CRUD) application. After the first sprint, it was decided that updating or editing the application was not needed on moral grounds. 
 
 ### User Stories
 
@@ -58,15 +58,7 @@ The following user stories reflect the initial design specifications of this app
 
 **First sprint** 
 
-In the first sprint, these [brainstoming notes](docs/Brainstorm.pdf) were created. This is a list of four - five different ideas that were generated within an hour. The possibilities included:
-
-1. A mood tracker
-2. Don't Break the Chain
-3. Space Invaders
-4. Bejeweled
-5. A translation app
-
-After some advice from the teacher, Don't Break the Chain was selected. Related gems were noted beforehand and they were immediately used to create the menu and box containing the grid. All basic functionality and writing / reading from a file were coded. Unfortunately, this meant overlooking the planning phase for the higher-level structure. 
+After some advice from the teacher, Don't Break the Chain was selected as the project to work on. Related gems were noted beforehand and they were immediately used to create the menu and box containing the grid. All basic functionality and writing / reading from a file were coded. Unfortunately, this meant overlooking the planning phase for the higher-level structure. 
 
 **Second sprint**
 
@@ -90,8 +82,8 @@ The UI of the application was first sketched out.
 
 ## Future Improvements
 
-1. Adding colours to signify effort
-2. Adding a reward (a rainbow effect on the marks) for completing 100 days
+1. Add colours to signify effort
+2. Add a reward (a rainbow effect on the marks) for completing 100 days
 2. Translation
 
 ## Discussion
