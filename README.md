@@ -30,6 +30,8 @@ Within the Command Line Interface (CLI):
 ## Screenshots
 ![100 Days Marked](docs/100_days_marked.png "100 days marked")
 
+<img src="docs/100_days_marked.png" alt="100 days marked" width="606" height="659"/>
+
 ## Brainstorming and Workflow
 
 In the initial brainstorming phase, these [notes](docs/Brainstorm.pdf) were created. This is a list of the five different ideas that were generated within an hour. The possibilities included:
