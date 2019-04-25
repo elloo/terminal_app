@@ -28,6 +28,7 @@ Within the Command Line Interface (CLI):
 - [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
+![100 Days Marked](docs/100_days_marked "100 days marked")
 
 ## Brainstorming and Workflow
 
@@ -58,11 +59,11 @@ The following user stories reflect the initial design specifications of this app
 
 **First sprint** 
 
-After some advice from the teacher, Don't Break the Chain was selected as the project to work on. Related gems were noted beforehand and they were immediately used to create the menu and box containing the grid. All basic functionality and writing / reading from a file were coded. Unfortunately, this meant overlooking the planning phase for the higher-level structure. 
+After some advice from the teacher, Don't Break the Chain was selected as the project to work on. Related gems were noted beforehand and they were immediately used to create the menu and box containing the grid. All basic functionality (mark, delete and reset) and writing / reading from a file were coded. This took approximately 13 hours. Unfortunately, this meant overlooking the planning phase for the higher-level structure. 
 
 **Second sprint**
 
-The UI of the application was first sketched out.
+The UI of the application was sketched out. In addition, notes were made on how to improve the reset function and implement the day tracking feature. Changes were made to the structure of the code to reflect this sketch. A `quit` feature was also coded into the program, along with strategic use of `system "clear"`.
 
 ### Higher Level Structure
 
@@ -78,7 +79,7 @@ The UI of the application was first sketched out.
 
    In order to add or delete a single, selected character within the 2D array that represented the grid, the file always had to be read directly before making a change to it.
 
-   Another problem that occured with writing the file was that it would append to the file when trying to reset, even though it was in write mode. This was due to the use of `<<` within the `reset` method. It was easily fixed by assigning an empty array at the start of the method. 
+   Another problem that occurred with writing the file was that it would append to the file when trying to reset, even though it was in write mode. This was due to the use of `<<` within the `reset` method. It was easily fixed by assigning an empty array at the start of the method. 
 
 ## Future Improvements
 
