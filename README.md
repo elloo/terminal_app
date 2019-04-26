@@ -28,7 +28,8 @@ Within the Command Line Interface (CLI):
 - [TTY::Box](https://github.com/piotrmurach/tty-box "TTY::Box GitHub")
 
 ## Screenshots
-![100 Days Marked](docs/100_days_marked.png "100 days marked")
+
+<img src="docs/100_days_marked.png" alt="100 days marked" width="455" height="494"/>
 
 ## Brainstorming and Workflow
 
@@ -52,8 +53,8 @@ The following user stories reflect the initial design specifications of this app
 
 - As Ewe Lin, I want to mark down the days I stick to a habit so that I can track my progress in #100DaysofCode
 - As Ewe Lin, I want to be able to delete past entries so that I can make mistakes
-- As Shun, I want to be able to change / update entries for previous days so that I can make marks irregularly.
-- As Shun, I want to be able to view all entries so that I can gain an overview of my past behaviour
+- As Ewe Lin, I want to be able to change / update entries for previous days so that I can make marks irregularly.
+- As Ewe Lin, I want to be able to view all entries so that I can gain an overview of my past behaviour
 
 ## Project Plan & Timeline
 
@@ -84,8 +85,18 @@ The UI of the application was sketched out. In addition, notes were made on how 
 ## Future Improvements
 
 1. Add colours to signify effort
+
+   This can be done using the [Colorize](https://github.com/fazibear/colorize "Colorize GitHub") gem. It was intended that users would be able to use warmer colours to indicate high amounts of effort put into coding while cooler colours would represent the opposite.
+
+   Another improvement on this would be to allow users to set their own colours.
+
 2. Add a reward (a rainbow effect on the marks) for completing 100 days
-2. Translation
+
+   This can be done using the [lolcat](https://github.com/busyloop/lolcat "lolcat GitHub") gem.
+
+2. Language translation
+
+   This would address the minor cultural bias towards users from English-speaking backgrounds.
 
 ## Discussion
 
