@@ -1,30 +1,16 @@
 require "tty-box"
 require "tty-prompt"
 require "date"
+require_relative "helpers"
 
 @grid = []
-
-# HELPER METHODS
-
-def fixed_array(size, content)
-    Array.new(size){|i| content[i]}
-end
-
-def read_file
-    @grid = []
-    File.open('marks.txt').readlines.each do |line|
-        @grid << line
-    end
-end
-
-def write_file
-    File.open('marks.txt', 'w') { |f| f.puts(@grid)}
-end
+@day_index = 0
 
 # MAIN METHODS
 
 def menu(num2, num1 = 0)
-    unless File.exist?('marks.txt')
+    include Helpers
+    unless File.exists?('marks.txt')
         reset
     end
     # system "clear"
@@ -47,6 +33,7 @@ def menu(num2, num1 = 0)
 end
 
 def mark(y, x = 0)
+    include Helpers
     read_file
     @grid[x][y] = "x"
     write_file
@@ -54,6 +41,7 @@ def mark(y, x = 0)
 end
 
 def delete(y, x=0)
+    include Helpers
     read_file
     @grid[x][y] = " "
     write_file
@@ -61,6 +49,12 @@ def delete(y, x=0)
 end
 
 def reset
+    include Helpers
+    if File.exists?('init.txt')
+        File.delete('init.txt')
+        @init_txt = nil
+        track_day
+    end
     count = 0
     # reinitialize the grid to empty upon reset and update array from 0-9
     @grid = []
@@ -69,21 +63,27 @@ def reset
         count += 1
     end
     write_file
-
     menu(@day_index[0].to_i, @day_index[1].to_i)
 end
 
-def day_num
-    
-    @init_txt = File.open('init.txt', 'w+') { Date.today }
-    puts @day_num.class
-    if @day_num.nil? || @day_num > 100
-        @day_num = 0
+def track_day
+    # TD: Knowing that .open returns the block and .write returns length
+    # TD: Getting the initial date to reset appropriately
+    unless File.exists?('init.txt')
+        @init_txt = File.open('init.txt', 'w+') { |f| f.write Date.today }
     end
-    @day_num = (Date.parse('20190506') - @init_txt).to_i
-    @day = format('%02d', @day_num)
-    @day.to_s.split(//)
+
+    init_time = File.birthtime('init.txt')
+    init_date = init_time.to_i / (60 * 60 * 24)
+    current_date = Date.today.to_time.to_i / (60 * 60 * 24)
+    
+    day_num = current_date - init_date
+    if day_num.nil? || day_num > 100 || day_num < 0
+        day_num = 0
+    end
+    @day = format('%02d', day_num)
+    @day_index = @day.to_s.split(//)
 end
 
-@day_index = day_num
+track_day
 menu(@day_index[0].to_i, @day_index[1].to_i)
