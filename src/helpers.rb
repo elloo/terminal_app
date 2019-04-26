@@ -25,7 +25,7 @@ module Helpers
         init_time = File.birthtime('init.txt')
         init_date = init_time.to_i / (60 * 60 * 24)
         # Add to current date to test day tracking function
-        current_date = (Time.now.utc.to_i / (60 * 60 * 24)) + 99
+        current_date = Time.now.utc.to_i / (60 * 60 * 24)
         
         day_num = current_date - init_date
         if day_num.nil? || day_num >= 100 || day_num < 0
