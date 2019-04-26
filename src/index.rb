@@ -13,7 +13,7 @@ def menu(num2, num1 = 0)
     unless File.exists?('marks.txt')
         reset
     end
-    # system "clear"
+    system "clear"
     read_file
     @box = TTY::Box.frame(width: 20, height: 12, title: {top_left: "Don\'t Break", bottom_right: 'the Chain'}, align: :center) {
 "#{@grid.join("\n")}"
