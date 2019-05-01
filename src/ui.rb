@@ -28,7 +28,7 @@ class Menu
                     # puts "num1 is  #{num1}" 
                     # puts  "num2 is  #{num2}"
                 mark(num1, num2){@grid[num1][num2] = "x"} }},
-                {"Delete" => -> { mark(num1, num2){@grid[num2][num1] = " "} }},
+                {"Delete" => -> { mark(num1, num2){@grid[num1][num2] = " "} }},
                 {"Reset" => -> { reset }},
                 {"Quit" => -> { # Problem: Sometimes needs quitting twice
                     system "clear" 
